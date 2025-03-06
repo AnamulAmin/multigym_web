@@ -1,11 +1,13 @@
-import  { lazy, Suspense} from "react";
+import { lazy, Suspense } from "react";
 import GlobalLoading from "../../components library/GlobalLoading";
 
 const MyWorkout = lazy(() =>
   import("../../pages/OtherPage/Workout Routines/MyWorkout/MyWorkout")
 );
 const AddRequestWorkoutInputs = lazy(() =>
-  import("../../pages/OtherPage/Workout Routines/AddRequestWorkoutInputs/AddRequestWorkoutInputs")
+  import(
+    "../../pages/OtherPage/Workout Routines/AddRequestWorkoutInputs/AddRequestWorkoutInputs"
+  )
 );
 const Transactions = lazy(() =>
   import("../../pages/OtherPage/Financial Management/Transactions/Transactions")
@@ -239,8 +241,8 @@ function DashboardChildrenRoutes() {
       return pathName;
     }
 
-    // return pathName;
-    return isAllowed ? pathName : "";
+    return pathName;
+    // return isAllowed ? pathName : "";
   };
 
   // console.log("filterRouteItems", filterRouteItems);

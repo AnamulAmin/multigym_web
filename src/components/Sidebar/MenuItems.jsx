@@ -12,7 +12,7 @@ import {
   MdReceiptLong,
   MdFitnessCenter,
   MdLibraryBooks,
-  MdNotAccessible ,
+  MdNotAccessible,
   MdTrackChanges,
   MdFindReplace,
   MdSettings,
@@ -79,10 +79,7 @@ import {
 } from "react-icons/pi";
 import { IoIosAdd } from "react-icons/io";
 import { AiOutlineProfile } from "react-icons/ai";
-import {
-  HiOutlineMap,
-  HiOutlineUserPlus,
-} from "react-icons/hi2";
+import { HiOutlineMap, HiOutlineUserPlus } from "react-icons/hi2";
 import { TfiAnnouncement } from "react-icons/tfi";
 
 import { BiGroup } from "react-icons/bi";
@@ -92,7 +89,7 @@ import { BsCalendar4Event } from "react-icons/bs";
 import { RiShieldKeyholeLine } from "react-icons/ri";
 import { GrDocumentUser } from "react-icons/gr";
 import UseAxiosSecure from "../../Hook/UseAxioSecure";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUserAltSlash } from "react-icons/fa";
 import { useAuth } from "../../providers/AuthProvider";
 
@@ -101,7 +98,7 @@ const MenuItems = (userRole) => {
   const [groupNames, setGroupNames] = useState([]);
   const [filteredMenuItems, setFilteredMenuItems] = useState([]);
   const axiosSecure = UseAxiosSecure();
-  const {user} = useAuth()
+  const { user } = useAuth();
 
   const isAllowedRoute = (pathName) => {
     const isAllowed =
@@ -113,13 +110,16 @@ const MenuItems = (userRole) => {
       return true;
     }
 
-    return isAllowed || false;
+    return true;
+    // return isAllowed || false;
   };
 
   useEffect(() => {
     const fetchPermissions = async () => {
       try {
-        const response = await axiosSecure.get(`/permissions/${userRole}?branch=${user.branch}`);
+        const response = await axiosSecure.get(
+          `/permissions/${userRole}?branch=${user.branch}`
+        );
         const permissionRoutesArray = response?.data?.routesData.map(
           (item) => item.path
         );
@@ -163,7 +163,6 @@ const MenuItems = (userRole) => {
       title: "Dashboard User",
       icon: <LuLayoutDashboard className="text-lg" />,
       list: [
-        
         {
           title: "Workout Routine",
           path: "workout-routine",
