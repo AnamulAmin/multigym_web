@@ -8,7 +8,7 @@ import {
   FacebookAuthProvider,
   sendPasswordResetEmail,
   updatePassword,
-  sendEmailVerification 
+  sendEmailVerification,
 } from "firebase/auth";
 
 import PropTypes from "prop-types";
@@ -16,7 +16,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import UseAxiosSecure from "../Hook/UseAxioSecure";
 import Swal from "sweetalert2";
-
 
 export const AuthContext = createContext(null);
 
@@ -52,18 +51,30 @@ const AuthProvider = ({ children }) => {
   const createUser = async (email, password) => {
     setLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-      
+
       // Send email verification
       try {
         await sendEmailVerification(user);
-        showAlert("Verification Email Sent", "Please check your email to verify your account.", "success");
+        showAlert(
+          "Verification Email Sent",
+          "Please check your email to verify your account.",
+          "success"
+        );
       } catch (verificationError) {
         console.error("Error sending email verification:", verificationError);
-        showAlert("Verification Error", "Failed to send verification email. Please try again later.", "error");
+        showAlert(
+          "Verification Error",
+          "Failed to send verification email. Please try again later.",
+          "error"
+        );
       }
-  
+
       // Log out the user after sending verification email
       await logOut();
     } catch (error) {
@@ -77,16 +88,18 @@ const AuthProvider = ({ children }) => {
   const checkUserExistenceAndRole = async (userEmail) => {
     setLoading(true);
     try {
-      const response = await axiosSecure.get(`/users/user_by_email/${userEmail}`);
+      const response = await axiosSecure.get(
+        `/users/user_by_email/${userEmail}`
+      );
 
-      if (!response.data.isExistUser) {
-        showAlert(
-          "User not found",
-          "You are not registered in our system. Please contact support.",
-          "error"
-        );
-        return null;
-      }
+      // if (!response.data.isExistUser) {
+      //   showAlert(
+      //     "User not found",
+      //     "You are not registered in our system. Please contact support.",
+      //     "error"
+      //   );
+      //   return null;
+      // }
 
       const userData = response.data;
       if (!(userData.card_no && userData.member_id)) {
@@ -103,7 +116,6 @@ const AuthProvider = ({ children }) => {
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
-
     } catch (error) {
       console.error("Error during user existence and role check:", error);
       showAlert("Sign-in Error", error.message, "error");
@@ -116,11 +128,19 @@ const AuthProvider = ({ children }) => {
   const signInUser = async (email, password) => {
     setLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       if (!user.emailVerified) {
-        showAlert("Email not verified", "Please verify your email before signing in.", "error");
+        showAlert(
+          "Email not verified",
+          "Please verify your email before signing in.",
+          "error"
+        );
         await logOut();
         setLoading(false);
         return null;
@@ -131,7 +151,11 @@ const AuthProvider = ({ children }) => {
       console.error("Error during sign-in:", error);
       localStorage.removeItem("email");
       localStorage.removeItem("password");
-      showAlert("Login Faild !!!", "Incorrect Email or password. Please try again.", "error");
+      showAlert(
+        "Login Faild !!!",
+        "Incorrect Email or password. Please try again.",
+        "error"
+      );
     } finally {
       setLoading(false);
     }
@@ -165,16 +189,16 @@ const AuthProvider = ({ children }) => {
 
   const resetPasswordWithEmail = (email) => {
     setLoading(true);
-    return sendPasswordResetEmail(auth, email)
-      .finally(() => setLoading(false));
+    return sendPasswordResetEmail(auth, email).finally(() => setLoading(false));
   };
 
   const handleSetNewPassword = (newPassword) => {
     setLoading(true);
     const authUser = auth?.currentUser;
     console.log(authUser, "authUser");
-    return updatePassword(authUser, newPassword)
-      .finally(() => setLoading(false));
+    return updatePassword(authUser, newPassword).finally(() =>
+      setLoading(false)
+    );
   };
   const getUserRole = async () => {
     try {
@@ -188,7 +212,11 @@ const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Error fetching user role:", error);
-      showAlert("Role Fetch Error", "Failed to determine user role. Please try again.", "error");
+      showAlert(
+        "Role Fetch Error",
+        "Failed to determine user role. Please try again.",
+        "error"
+      );
     }
   };
   const logOut = () => {
