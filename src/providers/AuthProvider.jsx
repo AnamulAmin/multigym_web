@@ -102,15 +102,15 @@ const AuthProvider = ({ children }) => {
       // }
 
       const userData = response.data;
-      if (!(userData.card_no && userData.member_id)) {
-        showAlert(
-          "Registration Successful",
-          "Your membership registration was successful. Please visit our office or call our office for updates.",
-          "success"
-        );
-        await logOut();
-        return null;
-      }
+      // if (!(userData.card_no && userData.member_id)) {
+      //   showAlert(
+      //     "Registration Successful",
+      //     "Your membership registration was successful. Please visit our office or call our office for updates.",
+      //     "success"
+      //   );
+      //   await logOut();
+      //   return null;
+      // }
 
       // Set user and store in localStorage
       setUser(userData);
