@@ -1,0 +1,207 @@
+/* Main Container */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.courier-prime-regular {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courier-prime-bold {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.courier-prime-regular-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: italic; 
+}
+
+.courier-prime-bold-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.receipt-container {
+  font-family: 'Times New Roman';
+  width: 100%;
+  max-width: 80mm;
+  margin: auto;
+  /* background-color: white; */
+  /* text-transform: uppercase; */
+}
+
+.receipt-template {
+  padding: 16px;
+  width: 80mm;
+  margin: auto;
+  font-family: "Urbanist", sans-serif;
+  color: #1f1f39;
+  font-size: 12px;
+}
+
+/* Header Section */
+.receipt-header {
+  text-align: center;
+  /* margin-bottom: 16px; */
+}
+
+.company-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.company-address, .company-contact {
+  font-size: 12px;
+  margin-bottom:0;
+}
+
+.receipt{
+  font-size: 12px;
+  text-align: center;
+}
+
+.separator {
+  margin: 0;
+  border: dashed 1px #626262;
+}
+.separator1 {
+  margin: 5px 0 ;
+  border: dashed 1px #626262;
+}
+.separator2 {
+  margin: 5px 0 0 0 ;
+  border: dashed 1px #626262;
+}
+.separator3 {
+  margin: 7px 0 0 0 ;
+  border: dashed 1px #626262;
+}
+.Received{
+  margin: 2px 0;
+}
+
+/* Table Section */
+.order-details {
+  margin-bottom: 5px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.table-header, .table-cell {
+  /* padding: 12px; */
+  /* border: 1px solid #eff0f6; */
+  text-align: left;
+}
+
+.table-header {
+  /* background-color: #f8fbfb; */
+}
+
+.right{
+  text-align: right;
+}
+
+.table-cell {
+  /* color: #6e7191; */
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* Summary Section */
+.summary-section {
+  text-align: right;
+  /* margin-bottom: 1px; */
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+/* Package Info */
+.package-info {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.info-title {
+  font-weight: bold;
+  margin: 10px 0 0 0;
+}
+
+.lastBorder{
+  margin-top: 15px;
+  margin-bottom: 9px;
+}
+
+/* Total Summary */
+.total-summary {
+  text-align: right;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+/* Footer Section */
+.receipt-footer {
+  text-align: center;
+  font-size: 12px;
+}
+
+.receipt-footer p {
+  /* margin: 4px 0; */
+}
+
+.contact-footer {
+  font-weight: bold;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.italic-note {
+  font-style: italic;
+}
+
+/* Action Button */
+.action-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.twoContent{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.end{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+

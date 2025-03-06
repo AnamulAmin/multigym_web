@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* hi there */
+/* hi there */
+
+@font-face {
+  font-family: "Dottie";
+  src: url("./assets/fonts/dottie.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MerchantCopy";
+  src: url("./assets/fonts/merchantcopy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MerchantCopyDouble";
+  src: url("./assets/fonts/merchantcopydoublesize.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MerchantCopyWide";
+  src: url("./assets/fonts/merchantcopywide.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "fakeReceipt";
+  src: url("./assets/fonts/fake-receipt.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* @media print {
+  body * {
+    visibility: hidden;
+  }
+  .receipt-template,
+  .receipt-template * {
+    visibility: visible;
+  }
+  .receipt-template {
+    margin: auto;
+    width: 80mm;
+  }
+} */

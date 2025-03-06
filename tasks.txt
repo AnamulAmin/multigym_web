@@ -1,0 +1,29 @@
+re_HpS2MRyb_3qb1zshQnrJaD3oawJVtCMYs
+
+Work 1# Dashboard Overview Page:
+
+Modify the design to match the provided image.
+Implement API modifications to generate male and female data.Manage APIs by branch—if a branch-specific API is unavailable, apply a branch filter to This Overview APIs.
+
+Work 2#Member Page:
+
+Modify the design to match the provided image exactly. No extra modifications are needed.
+
+Work 3#Door Access Report:
+
+daily and monthly reports already implement but Filter by branch not implement so Redesign the API file and manage it by branch—ensure the user's login branch is auto-detected User branch and so the branch report .
+
+Work 4#Resend Email API:
+
+Implement a resend email API and create a function to send emails.
+
+Work 5#Firebase Email Verification:
+
+Implement Firebase email verification and change the email verification route for the following paths:
+dashboard/userprofile
+dashboard/members
+dashboard/gym-staff
+dashboard/unactiveuser
+User Profile Setup:
+
+Work 6#Copy the Route setup from "User Profile " to "Dashboard User" (userprofile).and Implement schedule classes for Dashboard Users, with a filter by user if possible.If the filter isn't feasible, copy and paste the previous route setup.
