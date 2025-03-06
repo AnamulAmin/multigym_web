@@ -587,17 +587,18 @@ const MenuItems = (userRole) => {
 
   // setFilteredMenuItems(filterMenuData2);
 
-  if (userRole === "admin") {
-    return allMenuItems;
-  } else {
-    console.log("filterMenuData2", filterMenuData2);
-    // return filterMenuData2 && filterMenuData2;
-    if (filterMenuData2?.length > 0) {
-      return filterMenuData2;
-    } else {
-      return [];
-    }
-  }
+  return allMenuItems;
+  // if (userRole === "admin") {
+  //   return allMenuItems;
+  // } else {
+  //   console.log("filterMenuData2", filterMenuData2);
+  //   // return filterMenuData2 && filterMenuData2;
+  //   if (filterMenuData2?.length > 0) {
+  //     return filterMenuData2;
+  //   } else {
+  //     return [];
+  //   }
+  // }
 };
 
 export default MenuItems;
