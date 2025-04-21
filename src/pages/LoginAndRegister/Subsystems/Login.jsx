@@ -25,9 +25,16 @@ const LoginSchema = z.object({
 function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(LoginSchema),
   });
+  const defaultEmail = "anamulamin20@gmail.com";
+  const defaultPassword = "MULTYGym@1234";
   const axiosSecure = UseAxiosSecure();
   const {
     user,
@@ -42,8 +49,8 @@ function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
+    const savedEmail = localStorage.getItem("email") || defaultEmail;
+    const savedPassword = localStorage.getItem("password") || defaultPassword;
 
     if (savedEmail && savedPassword) {
       setValue("email", savedEmail);
@@ -58,8 +65,7 @@ function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
     if (rememberMe) {
       localStorage.setItem("email", email);
       localStorage.setItem("password", password); // Avoid this in production!
-    } 
-
+    }
 
     try {
       const result = await signInUser(email, password);
@@ -154,7 +160,7 @@ function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
             />
             Remember Me
           </label>
-          <p 
+          <p
             className="text-white text-sm hover:underline cursor-pointer ml-2"
             onClick={onForgotPasswordClick}
           >
@@ -172,13 +178,13 @@ function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
       </form>
 
       <div className="flex gap-3 justify-center mt-4">
-        <div 
+        <div
           className="bg-white cursor-pointer rounded-full p-2"
           onClick={handleFacebookSignIn}
         >
           <FaFacebook className="w-7 h-7 text-blue-600" />
         </div>
-        <div 
+        <div
           className="bg-white cursor-pointer rounded-full p-2"
           onClick={handleGoogleSignIn}
         >
@@ -187,7 +193,7 @@ function LoginPage({ onCreateAccountClick, onForgotPasswordClick }) {
       </div>
 
       <div className="text-center mt-4">
-        <p 
+        <p
           className="text-white text-sm hover:underline cursor-pointer"
           onClick={onCreateAccountClick}
         >
